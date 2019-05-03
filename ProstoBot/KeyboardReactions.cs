@@ -16,11 +16,10 @@ namespace ProstoBot
     class KeyboardReactions : TelegramBotClient
     {
 
-         KeyboardReactions(string API_key) :base(API_key)
+         KeyboardReactions()
 
         {
-            string[] inLineKeyboardData = { "like", "dislike" };
-
+            
 
         }
     }
