@@ -29,21 +29,12 @@ namespace ProstoBot
 
         public static void Main(string[] args)
             {   
-           // var botSettings = BotSettings.Bot_Client;
 
             var me = Bot_ClientAPI.GetMeAsync().Result;
             Console.Title = me.Username;
 
             CommandController.vCommandHandler(Bot_ClientAPI);
-            // Bot_ClientAPI.OnMessage += WriteShit;
-
-            Bot_ClientAPI.OnMessage += Message_Type;
-            //Bot.OnMessageEdited += BotOnMessageReceived;
-            //Bot.OnCallbackQuery += BotOnCallbackQueryReceived;
-            //Bot.OnInlineQuery += BotOnInlineQueryReceived;
-            //Bot.OnInlineResultChosen += BotOnChosenInlineResultReceived;
-            //Bot.OnReceiveError += BotOnReceiveError;
-
+        
             Bot_ClientAPI.StartReceiving(Array.Empty<UpdateType>());
             Console.WriteLine($"Start listening for @{me.Username}");
             Console.ReadLine();
@@ -60,13 +51,13 @@ namespace ProstoBot
             var chatID = message.Chat.Id;
             ReplyKeyboardMarkup MyButton = new ReplyKeyboardMarkup();
             await Bot_ClientAPI.SendPhotoAsync(chatID, photo, replyMarkup: InlineKeyboard_React);
-                 
+            await Bot_ClientAPI.DeleteMessageAsync(message.Chat.Id, message.MessageId);
 
 
         }
 
-
-        async static void Message_Type(object sender, MessageEventArgs e)
+        
+        async public static void Message_Type(object sender, MessageEventArgs e)
 
         {
             //Debug line

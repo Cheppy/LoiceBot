@@ -21,6 +21,8 @@ namespace ProstoBot.Commands
            
           
             telegram.OnMessage += CommandsList.WriteShit;
+            telegram.OnMessage += BotController.Message_Type;
+            telegram.OnCallbackQuery += CommandsList.ProcessCallbackQuery;
 
             //telegram.OnMessage += BotOnMessageReceived;
             //telegram.OnMessageEdited += BotOnMessageReceived;

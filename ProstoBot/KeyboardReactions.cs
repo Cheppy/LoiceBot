@@ -13,14 +13,5 @@ using Telegram.Bot.Types.InputFiles;
 
 namespace ProstoBot
 {
-    class KeyboardReactions : TelegramBotClient
-    {
-
-         KeyboardReactions()
-
-        {
-            
-
-        }
-    }
+    
 }
