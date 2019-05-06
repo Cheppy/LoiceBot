@@ -13,5 +13,21 @@ using Telegram.Bot.Types.InputFiles;
 
 namespace ProstoBot
 {
-    
+    public static class KeyboardReactions
+    {
+
+        public static InlineKeyboardMarkup InlineKeyboard_React = 
+                        new InlineKeyboardMarkup(new[]
+                        {
+                          new [] 
+                          {
+                            InlineKeyboardButton.WithCallbackData("👍"),
+                            InlineKeyboardButton.WithCallbackData("👎🏿"),
+                           }
+
+                        });
+    }
+
+
+
 }

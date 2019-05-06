@@ -10,29 +10,20 @@
     using Telegram.Bot.Types.ReplyMarkups;
     using ProstoBot.Commands;
     using Telegram.Bot.Types.InputFiles;
+    
 
 namespace ProstoBot
 {
     class BotController
-    {
+    {   
         public static readonly TelegramBotClient Bot_ClientAPI = new TelegramBotClient(BotSettings.Key);
 
-        private static InlineKeyboardMarkup InlineKeyboard_React = new InlineKeyboardMarkup(new[]
-                  {
-                        new [] // first row
-                        {
-                            InlineKeyboardButton.WithCallbackData("👍"),
-                            InlineKeyboardButton.WithCallbackData("👎🏿"),
-                        }
-                     
-});
 
         public static void Main(string[] args)
             {   
 
             var me = Bot_ClientAPI.GetMeAsync().Result;
             Console.Title = me.Username;
-
             CommandController.vCommandHandler(Bot_ClientAPI);
         
             Bot_ClientAPI.StartReceiving(Array.Empty<UpdateType>());
@@ -50,7 +41,7 @@ namespace ProstoBot
             var photo = photoSize[0].FileId;
             var chatID = message.Chat.Id;
             ReplyKeyboardMarkup MyButton = new ReplyKeyboardMarkup();
-            await Bot_ClientAPI.SendPhotoAsync(chatID, photo, replyMarkup: InlineKeyboard_React);
+            await Bot_ClientAPI.SendPhotoAsync(chatID, photo, replyMarkup: KeyboardReactions.InlineKeyboard_React);
             await Bot_ClientAPI.DeleteMessageAsync(message.Chat.Id, message.MessageId);
 
 
