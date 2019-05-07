@@ -1,16 +1,9 @@
 ﻿    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Telegram.Bot;
     using Telegram.Bot.Args;
-    using Telegram.Bot.Types;
     using Telegram.Bot.Types.Enums;
-    using Telegram.Bot.Types.ReplyMarkups;
     using ProstoBot.Commands;
-    using Telegram.Bot.Types.InputFiles;
-    
+
 
 namespace ProstoBot
 {
@@ -32,21 +25,7 @@ namespace ProstoBot
             Bot_ClientAPI.StopReceiving();
         }
 
-
-
-        async static void AddInlineKeyboards(Message message)
-
-        {
-            PhotoSize[] photoSize = message.Photo;
-            var photo = photoSize[0].FileId;
-            var chatID = message.Chat.Id;
-            ReplyKeyboardMarkup MyButton = new ReplyKeyboardMarkup();
-            await Bot_ClientAPI.SendPhotoAsync(chatID, photo, replyMarkup: KeyboardReactions.InlineKeyboard_React);
-            await Bot_ClientAPI.DeleteMessageAsync(message.Chat.Id, message.MessageId);
-
-
-        }
-
+      
         
         async public static void Message_Type(object sender, MessageEventArgs e)
 
@@ -65,7 +44,7 @@ namespace ProstoBot
                 break;
 
                 case MessageType.Photo:
-                     AddInlineKeyboards(e.Message);
+                     KeyboardReactions.AddInlineKeyboards(e.Message);
                      await Bot_ClientAPI.SendTextMessageAsync( chatId: e.Message.Chat,
                                                                text: "this is photo" + e.Message.Text
                                                               );

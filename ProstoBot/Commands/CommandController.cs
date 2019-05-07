@@ -1,5 +1,4 @@
- using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot.Args;
@@ -17,7 +16,7 @@ namespace ProstoBot.Commands
         public static readonly TelegramBotClient Bot_ClientAPI = new TelegramBotClient(BotSettings.Key);
 
         public static void vCommandHandler(TelegramBotClient telegram)
-        { CommandsList commandsList = new CommandsList();
+        { CommandsList сml = new CommandsList();
            
           
             telegram.OnMessage += CommandsList.WriteShit;

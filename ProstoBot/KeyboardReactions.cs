@@ -15,6 +15,8 @@ namespace ProstoBot
 {
     public static class KeyboardReactions
     {
+        public static readonly TelegramBotClient Bot_ClientAPI = new TelegramBotClient(BotSettings.Key);
+
 
         public static InlineKeyboardMarkup InlineKeyboard_React = 
                         new InlineKeyboardMarkup(new[]
@@ -25,7 +27,22 @@ namespace ProstoBot
                             InlineKeyboardButton.WithCallbackData("👎🏿"),
                            }
 
+
                         });
+
+        async public static void AddInlineKeyboards(Message message)
+
+        {
+            PhotoSize[] photoSize = message.Photo;
+            var photo = photoSize[0].FileId;
+            var chatID = message.Chat.Id;
+            ReplyKeyboardMarkup MyButton = new ReplyKeyboardMarkup();
+            await Bot_ClientAPI.SendPhotoAsync(chatID, photo, replyMarkup: KeyboardReactions.InlineKeyboard_React);
+            await Bot_ClientAPI.DeleteMessageAsync(message.Chat.Id, message.MessageId);
+
+
+        }
+
     }
 
 
