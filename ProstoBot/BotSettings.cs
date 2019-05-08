@@ -15,12 +15,11 @@ namespace ProstoBot
     public static class BotSettings
     {
         //public static readonly TelegramBotClient Bot_ClientAPI = new TelegramBotClient("741386704:AAF2CS2_NKPjD_0KKvZz_DGaJ242-YyLbQE");
-            
-            
+
+
         public static string Url { get; set; } = "";
         public static string Name { get; set; } = "prostoanime_bot";
         public static string Key { get; set; } = "741386704:AAF2CS2_NKPjD_0KKvZz_DGaJ242-YyLbQE";
-      
 
 
 
