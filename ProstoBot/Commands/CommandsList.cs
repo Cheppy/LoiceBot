@@ -18,7 +18,7 @@ namespace ProstoBot.Commands
         public static readonly TelegramBotClient Bot_ClientAPI = new TelegramBotClient(BotSettings.Key);
 
 
-       public static async void WriteShit(object sender, MessageEventArgs e)
+        public static async void WriteShit(object sender, MessageEventArgs e)
         {
             if (e.Message.Text != null)
             {
@@ -31,6 +31,9 @@ namespace ProstoBot.Commands
             }
         }
 
+
+            
+                     
         async public static void ProcessCallbackQuery(object sender, CallbackQueryEventArgs e)
 
         {
@@ -43,7 +46,8 @@ namespace ProstoBot.Commands
             Message message = e.CallbackQuery.Message;
 
 
-                await Bot_ClientAPI.AnswerCallbackQueryAsync(e.CallbackQuery.Id, "У вас нет прав", true);
+                await Bot_ClientAPI.AnswerCallbackQueryAsync(e.CallbackQuery.Id, "text", true);
+            await Bot_ClientAPI.GetUpdatesAsync();
 
         }
     }

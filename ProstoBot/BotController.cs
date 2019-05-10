@@ -22,7 +22,7 @@ namespace ProstoBot
             CommandController.vCommandHandler(Bot_ClientAPI);
             Bot_ClientAPI.StartReceiving(Array.Empty<UpdateType>());
             Console.WriteLine($"Start listening for @{me.Username}");
-            Console.WriteLine(DBConnect.PostgreSQLtest());
+            Console.WriteLine(DBConnect.PostgreSQLtestConnection());
             Console.ReadLine();
             Bot_ClientAPI.StopReceiving();
         }
