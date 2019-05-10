@@ -13,26 +13,12 @@ using Telegram.Bot.Types.InputFiles;
 
 namespace ProstoBot
 {
-    public  class KeyboardReactions
+    public class KeyboardReactions
     {
         public static readonly TelegramBotClient Bot_ClientAPI = new TelegramBotClient(BotSettings.Key);
 
 
         private static List<string> reactions = new List<string>();
-       
-        public static InlineKeyboardMarkup InlineKeyboard_React = 
-                        new InlineKeyboardMarkup(new[]
-                        {
-                          new [] 
-                          {
-                            InlineKeyboardButton.WithCallbackData("👍"),
-                            InlineKeyboardButton.WithCallbackData("👎🏿"),
-                           }
-
-
-                        });
-
-
 
 
         public static InlineKeyboardMarkup Reactions_List(List<string> reactions)
@@ -53,7 +39,7 @@ namespace ProstoBot
             return new InlineKeyboardMarkup(buttons);
         }
 
-            async public static void AddInlineKeyboards(Message message)
+        async public static void AddInlineKeyboards(Message message)
 
         {
             PhotoSize[] photoSize = message.Photo;
@@ -67,8 +53,22 @@ namespace ProstoBot
 
         }
 
-    }
 
+        #region TEST STUFF 
+        public static InlineKeyboardMarkup InlineKeyboard_React =
+                        new InlineKeyboardMarkup(new[]
+                        {
+                          new []
+                          {
+                            InlineKeyboardButton.WithCallbackData("👍"),
+                            InlineKeyboardButton.WithCallbackData("👎🏿"),
+                           }
+
+
+                        });
+
+                        }
+    #endregion
 
 
 }
