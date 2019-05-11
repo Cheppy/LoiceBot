@@ -31,7 +31,7 @@ namespace ProstoBot
                 var button = new InlineKeyboardButton();
                 button.Text = reaction;
 
-                buttons.Add(button);
+                buttons.Add(button.Text);
 
 
             }
@@ -45,10 +45,13 @@ namespace ProstoBot
             PhotoSize[] photoSize = message.Photo;
             var photo = photoSize[0].FileId;
             var chatID = message.Chat.Id;
-            reactions.Add("👍");
+            reactions.Add("w👍");
             reactions.Add("👎🏿");
+            int replyTomessageId = (message.ReplyToMessage != null) ? message.ReplyToMessage.MessageId : 0;
             ReplyKeyboardMarkup MyButton = new ReplyKeyboardMarkup();
-            await Bot_ClientAPI.SendPhotoAsync(chatID, photo, replyMarkup: Reactions_List(reactions));
+          //  await Bot_ClientAPI.SendPhotoAsync(chatID, photo, replyMarkup: Reactions_List(reactions));
+            await Bot_ClientAPI.SendPhotoAsync(message.Chat.Id, photo, message.Caption, ParseMode.Default, true, replyTomessageId, replyMarkup: Reactions_List(reactions));
+
             await Bot_ClientAPI.DeleteMessageAsync(message.Chat.Id, message.MessageId);
 
         }
