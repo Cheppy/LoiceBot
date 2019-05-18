@@ -45,7 +45,7 @@ namespace ProstoBot
             PhotoSize[] photoSize = message.Photo;
             var photo = photoSize[0].FileId;
             var chatID = message.Chat.Id;
-            reactions.Add("w👍");
+            reactions.Add("👍");
             reactions.Add("👎🏿");
             int replyTomessageId = (message.ReplyToMessage != null) ? message.ReplyToMessage.MessageId : 0;
             ReplyKeyboardMarkup MyButton = new ReplyKeyboardMarkup();
@@ -63,7 +63,7 @@ namespace ProstoBot
                         {
                           new []
                           {
-                            InlineKeyboardButton.WithCallbackData("👍"),
+                            InlineKeyboardButton.WithCallbackData("👍1111"),
                             InlineKeyboardButton.WithCallbackData("👎🏿"),
                            }
 

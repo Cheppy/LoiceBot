@@ -44,7 +44,7 @@ namespace ProstoBot.Commands
             // byte buttonNumber = Byte.Parse(e.CallbackQuery.Data);
 
             Message message = e.CallbackQuery.Message;
-           // await Bot_ClientAPI.EditMessageReplyMarkupAsync(e.Chat, message.MessageId, markup);
+           await Bot_ClientAPI.EditMessageReplyMarkupAsync(message.Chat.Id, message.MessageId,  KeyboardReactions.InlineKeyboard_React);
 
             await Bot_ClientAPI.AnswerCallbackQueryAsync(e.CallbackQuery.Id, "text", true);
             await Bot_ClientAPI.GetUpdatesAsync();
